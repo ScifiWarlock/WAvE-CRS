@@ -24,11 +24,11 @@ import webbrowser
 
 #datetime for html update and keyboard for reload
 from datetime import datetime
-import keyboard
+#import keyboard
 
 #subprocess for xcode build
 import subprocess
-from subprocess import call
+from subprocess import run
 
 #counter induces infinite loop MUST BE MANUALLY STOPPED OTHERWISE TOO MANY API CALLS UNECESSARILY
 counter = 1
@@ -38,11 +38,13 @@ stdf = pd.DataFrame(log_array, index=['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 
 
 #camera initialization from geeks for geeks tutorial
 pygame.camera.init() 
-  
+
+print("camera is initializeed")
+
 # make the list of all available cameras 
 camlist = pygame.camera.list_cameras()
-filename = 'file:///'+os.getcwd()+'/' + 'wavewrite.html'
-webbrowser.open_new_tab(filename) 
+#filename = 'file:///'+os.getcwd()+'/' + 'wavewrite.html'
+#webbrowser.open_new_tab(filename) 
 
 def get_df():
     df = pd.DataFrame(log_array, columns=['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'])
@@ -58,13 +60,15 @@ while counter != 0:
         image = cam.get_image() 
   
         pygame.image.save(image, "image2.jpg") 
+
+        print("picture is taken")
  
     else: 
         print("No camera on current device")
         quit() 
 
     #roboflow API Call (from the roboflow docs)
-    rf = Roboflow(api_key="DCoxTb2e1y9IPD07P4sg")
+    rf = Roboflow(api_key="pMGWz02qWhPkawZm31AZ")
     project = rf.workspace().project("wave-detect")
     model = project.version(1).model
     image = "image2.jpg"
@@ -80,11 +84,10 @@ while counter != 0:
 
     #removing the image for looping later; saves space only one image generated
     time.sleep(1.5)
-    os.remove("image2.jpg")
     
 
     #case for updating CRS (PLS MAKE SURE IN DEMO THAT THIS CASE MUST BE CHANGED TO IN, REMOVE THE NOT)
-    curTime = datetime.datetime.now().strftime("%H:%M:%S")
+    #curTime = datetime.datetime.now().strftime("%H:%M:%S")
     cur_month = datetime.now().month
     if "asleep" not in prediction:
         log_array[cur_month] += 1
@@ -92,7 +95,7 @@ while counter != 0:
 
         #Used subprocess to build xcode project
         #build = f{"xcodebuild -project {WAvE_haptics_watch.xcodeproj} -scheme WAvE_haptics_watch -destination platform=watchOS Simulator,name=Series 9"}
-        subprocess.run("xcodebuild -project WAvE_haptics_watch.xcodeproj -scheme WAvE_haptics_watch -destination platform=watchOS Simulator,name=Series 9", shell=True)
+        subprocess.run("xcodebuild -project WAvE_haptics_watch.xcodeproj -scheme WAvE_haptics_watch -destination platform=watchOS Simulator,name=Series 8", shell=True)
 
         #Keyboard was previous attempt at running the xcode project; did not work
         #keyboard.press_and_release('ctrl+r')

@@ -1,8 +1,10 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import subprocess
+from subprocess import run
 
-import df from wavetest
+#import df from mywavetest
 from mywavetest import get_df
 
 stdf = get_df()
@@ -13,3 +15,6 @@ st.write(
 )
 st.write("We will be adding more data visualizations in the next few months. Stay tuned!")
 st.table(stdf)
+
+subprocess.run("git commit")
+subprocess.run("git push")
