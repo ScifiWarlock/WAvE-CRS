@@ -91,6 +91,7 @@ while counter != 0:
     cur_month = datetime.now().month
     if "asleep" not in prediction:
         log_array[cur_month] += 1
+        stdf.to_excel("df.xlsx")
 
 
         #Used subprocess to build xcode project
