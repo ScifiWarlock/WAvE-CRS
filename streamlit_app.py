@@ -7,7 +7,7 @@ import numpy as np
 
 #stdf = get_df()
 
-log_array = np.array([0], [0], [0], [0], [0], [0], [0], [0], [0], [0], [0], [0]])
+log_array = np.array([0], [0], [0], [0], [0], [0], [0], [0], [0], [0], [0], [0])
 stdf = pd.DataFrame(log_array, columns=['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'])
 
 st.title("WAvE CRS")
