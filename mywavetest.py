@@ -33,8 +33,10 @@ from subprocess import run
 #counter induces infinite loop MUST BE MANUALLY STOPPED OTHERWISE TOO MANY API CALLS UNECESSARILY
 counter = 1
 #Creating a df and array
-log_array = np.array([0, 2, 0, 1, 0, 2, 0, 1, 0, 2, 0, 1])
-stdf = pd.DataFrame(log_array, index=['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'], columns=['Logs'])
+#log_array = np.array([0, 2, 0, 1, 0, 2, 0, 1, 0, 2, 0, 1])
+#tdf = pd.DataFrame(log_array, index=['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'], columns=['Logs'])
+
+stdf = pd.read_excel("df.xlsx")
 
 #camera initialization from geeks for geeks tutorial
 pygame.camera.init() 
@@ -46,8 +48,8 @@ camlist = pygame.camera.list_cameras()
 #filename = 'file:///'+os.getcwd()+'/' + 'wavewrite.html'
 #webbrowser.open_new_tab(filename) 
 
-def get_df():
-    df = pd.DataFrame(log_array, columns=['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'])
+#def get_df():
+    #df = pd.DataFrame(log_array, columns=['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'])
 
 # if camera is detected or not 
 while counter != 0:
@@ -91,14 +93,15 @@ while counter != 0:
     cur_month = datetime.now().month
     if "asleep" not in prediction:
         print("noasleepfound")
-        log_array[cur_month] += 1
+        #log_array[cur_month] += 1
+        stdf.loc[cur_month, 'Logs'] += 1
         print(stdf)
         stdf.to_excel("df.xlsx")
 
 
         #Used subprocess to build xcode project
         #build = f{"xcodebuild -project {WAvE_haptics_watch.xcodeproj} -scheme WAvE_haptics_watch -destination platform=watchOS Simulator,name=Series 9"}
-        subprocess.run("xcodebuild -project WAvE_haptics_watch.xcodeproj -scheme WAvE_haptics_watch -destination platform=watchOS Simulator,name=Series 8", shell=True)
+        subprocess.run(["xcodebuild", "-project", "/Users/omkar/Documents/wave/WAvE-CRS/WAvE_haptics_watch/WAvE_haptics_watch.xcodeproj", "-scheme", "WAvE_haptics_watch_one", "-destination", "platform=watchOS Simulator,name=Series 8"])
 
         #Keyboard was previous attempt at running the xcode project; did not work
         #keyboard.press_and_release('ctrl+r')
