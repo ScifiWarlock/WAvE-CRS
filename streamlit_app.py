@@ -8,7 +8,7 @@ import numpy as np
 #stdf = get_df()
 
 log_array = np.array([0, 2, 0, 1, 0, 2, 0, 1, 0, 2, 0, 1])
-stdf = pd.DataFrame(log_array, rows=['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'], columns=['Logs'])
+stdf = pd.DataFrame(log_array, index=['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'], columns=['Logs'])
 
 st.title("WAvE CRS")
 st.write(
