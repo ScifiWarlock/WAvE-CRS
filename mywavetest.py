@@ -28,7 +28,7 @@ import keyboard
 
 #subprocess for xcode build
 import subprocess
-from subprocess import call
+from subprocess import run
 
 #counter induces infinite loop MUST BE MANUALLY STOPPED OTHERWISE TOO MANY API CALLS UNECESSARILY
 counter = 1
@@ -64,7 +64,7 @@ while counter != 0:
         quit() 
 
     #roboflow API Call (from the roboflow docs)
-    rf = Roboflow(api_key="DCoxTb2e1y9IPD07P4sg")
+    rf = Roboflow(api_key="pMGWz02qWhPkawZm31AZ")
     project = rf.workspace().project("wave-detect")
     model = project.version(1).model
     image = "image2.jpg"
