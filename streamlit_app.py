@@ -14,7 +14,7 @@ st.write(
     "Welcome to the WAvE Customer Reporting Service. Below is a bar chart of daily fatigue occurences."
 )
 st.write("We will be adding more data visualizations in the next few months. Stay tuned!")
-st.table(stdf, 'Logs')
+st.table(stdf, columns='Logs')
 
 #subprocess.run("git commit")
 #subprocess.run("git push")
