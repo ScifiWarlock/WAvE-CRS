@@ -1,6 +1,12 @@
 import streamlit as st
+import pandas as pd
+import numpy as np
 
-st.title("🎈 My new app")
+st.title("WAvE CRS")
 st.write(
-    "Let's start building! For help and inspiration, head over to [docs.streamlit.io](https://docs.streamlit.io/)."
+    "Welcome to the WAvE Customer Reporting Service. Below is a bar chart of daily fatigue occurences."
 )
+st.write("We will be adding more data visualizations in the next few months. Stay tuned!")
+chart_data = pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"])
+
+st.bar_chart(chart_data)
