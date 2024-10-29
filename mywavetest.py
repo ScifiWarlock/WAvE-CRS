@@ -101,7 +101,7 @@ while counter != 0:
 
         #Used subprocess to build xcode project
         #build = f{"xcodebuild -project {WAvE_haptics_watch.xcodeproj} -scheme WAvE_haptics_watch -destination platform=watchOS Simulator,name=Series 9"}
-        subprocess.run(["xcodebuild", "-project", "/Users/omkar/Documents/wave/WAvE-CRS/WAvE_haptics_watch/WAvE_haptics_watch.xcodeproj", "-scheme", "WAvE_haptics_watch_one", "-destination", "platform=watchOS Simulator,name=Series 8"])
+        subprocess.run(["xcodebuild", "-project", "/Users/omkar/Documents/wave/WAvE-CRS/WAvE_haptics_watch/WAvE_haptics_watch.xcodeproj", "-scheme", "WAvE_haptics_watch_one", "-sdk", "watchsimulator", "-destination", "platform=watchOS Simulator,name=Series 8"])
 
         #Keyboard was previous attempt at running the xcode project; did not work
         #keyboard.press_and_release('ctrl+r')
