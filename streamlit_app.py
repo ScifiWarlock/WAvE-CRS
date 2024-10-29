@@ -9,7 +9,7 @@ from subprocess import run
 
 stdf = pd.read_excel("df.xlsx")
 
-stdf = stdf.iloc[:, [-1]]
+stdf = stdf.iloc[:, [-2, -1]]
 
 st.title("WAvE CRS")
 st.write(
