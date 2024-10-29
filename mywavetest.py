@@ -90,7 +90,9 @@ while counter != 0:
     #curTime = datetime.datetime.now().strftime("%H:%M:%S")
     cur_month = datetime.now().month
     if "asleep" not in prediction:
+        print("noasleepfound")
         log_array[cur_month] += 1
+        print(stdf)
         stdf.to_excel("df.xlsx")
 
 
