@@ -37,7 +37,8 @@ struct ContentView: View {
             // Dismiss button as seen in your screenshot
             Button(action: {
                 self.showAlert = true
-                            }) {
+                WKInterfaceDevice.current().play(.notification)
+            }) {
                 Text("Dismiss")
                     .foregroundColor(.white)
                     .padding()
@@ -49,7 +50,6 @@ struct ContentView: View {
         .onAppear {
             // Play Haptic on Appear
             WKInterfaceDevice.current().play(.notification)
-            WKInterfaceDevice.current().play( .underwaterDepthCriticalPrompt)
         }
         
         .alert(isPresented: $showAlert) {
