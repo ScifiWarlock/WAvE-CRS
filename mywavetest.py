@@ -33,9 +33,10 @@ from subprocess import call
 #counter induces infinite loop MUST BE MANUALLY STOPPED OTHERWISE TOO MANY API CALLS UNECESSARILY
 counter = 1
 #Creating a df and array
-log_array = np.array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
-df = pd.DataFrame(log_array, columns=['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'])
-# initializing  the camera; pygame camera from geeks for geeks tutorrial 
+log_array = np.array([0, 2, 0, 1, 0, 2, 0, 1, 0, 2, 0, 1])
+stdf = pd.DataFrame(log_array, index=['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'], columns=['Logs'])
+
+#camera initialization from geeks for geeks tutorial
 pygame.camera.init() 
   
 # make the list of all available cameras 
