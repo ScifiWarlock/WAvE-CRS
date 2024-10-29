@@ -5,9 +5,9 @@ import subprocess
 from subprocess import run
 
 #import df from mywavetest
-from mywavetest import get_df
+#from mywavetest import get_df
 
-stdf = get_df()
+stdf = pd.read_excel("df.xlsx")
 
 st.title("WAvE CRS")
 st.write(
