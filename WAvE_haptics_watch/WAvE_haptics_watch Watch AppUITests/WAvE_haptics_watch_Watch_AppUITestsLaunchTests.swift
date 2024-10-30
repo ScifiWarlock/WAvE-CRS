@@ -7,7 +7,7 @@
 
 import XCTest
 
-/*final class WAvE_haptics_watch_Watch_AppUITestsLaunchTests: XCTestCase {
+final class WAvE_haptics_watch_Watch_AppUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true
@@ -29,5 +29,5 @@ import XCTest
         attachment.lifetime = .keepAlways
         add(attachment)
     }
-}*/
+}
 

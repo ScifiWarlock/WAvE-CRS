@@ -30,8 +30,12 @@ from datetime import datetime
 import subprocess
 from subprocess import run
 
+import pynput
+from pynput.keyboard import Controller, Key
+
 #counter induces infinite loop MUST BE MANUALLY STOPPED OTHERWISE TOO MANY API CALLS UNECESSARILY
 counter = 1
+keyboard = Controller()
 #Creating a df and array
 #log_array = np.array([0, 2, 0, 1, 0, 2, 0, 1, 0, 2, 0, 1])
 #tdf = pd.DataFrame(log_array, index=['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'], columns=['Logs'])
@@ -101,11 +105,19 @@ while counter != 0:
 
         #Used subprocess to build xcode project
         #build = f{"xcodebuild -project {WAvE_haptics_watch.xcodeproj} -scheme WAvE_haptics_watch -destination platform=watchOS Simulator,name=Series 9"}
-        subprocess.run(["xcodebuild", "-project", "/Users/omkar/Documents/wave/WAvE-CRS/WAvE_haptics_watch/WAvE_haptics_watch.xcodeproj", "-scheme", "WAvE_haptics_watch_one", "-sdk", "watchsimulator", "-destination", "platform=watchOS Simulator,name=Series 8"])
+        #subprocess.run(["xcodebuild", "-project", "/Users/omkar/Documents/wave/WAvE-CRS/WAvE_haptics_watch/WAvE_haptics_watch.xcodeproj", "-scheme", "WAvE_haptics_watch_one", "-sdk", "watchsimulator", "-destination", "platform=watchOS Simulator,name=Series 8"])
 
         #Keyboard was previous attempt at running the xcode project; did not work
         #keyboard.press_and_release('ctrl+r')
 
+        subprocess.run(['open', '-a', 'xcode'])
+
+        keyboard.press(Key.cmd)
+        keyboard.press('r')
+        time.sleep(0.5)
+        keyboard.release(Key.cmd)
+        keyboard.release('r')
+
     time.sleep(1.5)
     os.remove("image2.jpg")
-    time.sleep(1)
+    time.sleep(120)
