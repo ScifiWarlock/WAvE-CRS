@@ -9,12 +9,14 @@ from subprocess import run
 
 stdf = pd.read_excel("df.xlsx")
 
+stdf = stdf.iloc[:, [-2, -1]]
+
 st.title("WAvE CRS")
 st.write(
-    "Welcome to the WAvE Customer Reporting Service. Below is a bar chart of daily fatigue occurences."
+    "Welcome to the WAvE Customer Reporting Service. Below is a table of daily fatigue occurences."
 )
 st.write("We will be adding more data visualizations in the next few months. Stay tuned!")
 st.table(stdf)
 
-subprocess.run("git commit")
-subprocess.run("git push")
+#subprocess.run("git commit")
+#subprocess.run("git push")
