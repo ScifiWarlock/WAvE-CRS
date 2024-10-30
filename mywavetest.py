@@ -81,7 +81,7 @@ while counter != 0:
 
     # infer on a local image print(model.predict(image, confidence=40, overlap=30).json())
     prediction = model.predict(image)
-    print(prediction.json())
+    #print(prediction.json())
     #case for updating CRS (PLS MAKE SURE IN DEMO THAT THIS CASE MUST BE CHANGED TO IN, REMOVE THE NOT)
     # if "asleep" not in prediction:
     #     curTime = datetime.datetime.now().strftime("%H:%M:%S")
