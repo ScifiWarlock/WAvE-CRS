@@ -38,3 +38,6 @@ elif p_complex != l_series_center and abs(p_complex) < abs(stdev_combined)*math.
 
 elif p_complex != l_series_center and abs(p_complex) > abs(stdev_combined)*math.sqrt(2):
     print("Fatigue is a possibility. Contacting servers and verifying with facial detection model...")
+    stdf = pd.read_excel("df.xlsx")
+    stdf.loc[cur_month, 'Logs'] += 1
+    stdf.to_excel("df.xlsx")
