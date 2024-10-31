@@ -45,7 +45,7 @@ stdf = pd.read_excel("df.xlsx")
 #camera initialization from geeks for geeks tutorial
 pygame.camera.init() 
 
-print("camera is initializeed")
+print("camera is initialized")
 
 # make the list of all available cameras 
 camlist = pygame.camera.list_cameras()
