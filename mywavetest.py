@@ -74,7 +74,7 @@ while counter != 0:
         quit() 
 
     #roboflow API Call (from the roboflow docs)
-    rf = Roboflow(api_key="pMGWz02qWhPkawZm31AZ")
+    rf = Roboflow(api_key="")
     project = rf.workspace().project("wave-detect")
     model = project.version(1).model
     image = "image2.jpg"
@@ -95,7 +95,7 @@ while counter != 0:
     #case for updating CRS (PLS MAKE SURE IN DEMO THAT THIS CASE MUST BE CHANGED TO IN, REMOVE THE NOT)
     #curTime = datetime.datetime.now().strftime("%H:%M:%S")
     cur_month = datetime.now().month
-    if "asleep" not in prediction:
+    if "asleep" in prediction:
         print("noasleepfound")
         #log_array[cur_month] += 1
         stdf.loc[cur_month, 'Logs'] += 1
